@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6, user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Home - Northrop Grumman Copy </title>
+
+    <style>
+        * {
+            margin: 0;
+        }
+
+        .sectionHeader {
+            top: 0;
+            z-index: 9999;
+            width: -webkit-fill-available;
+            position: fixed;
+
+        }
+
+        .mainMenu {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            padding-right: 0px;
+            height: 75px;
+            width: 100%;
+            background: black;
+            align-items: center;
+        }
+
+        .logoLi {
+            float: left;
+        }
+
+        .menu-contant {
+            width: 60%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            grid-gap: 1rem;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            font-family: system-ui;
+        }
+
+        .menu-contant-a {
+
+            border-right: 1px white solid;
+            padding-right: 15px;
+
+        }
+
+        #searchDiv {
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+        }
+
+        #search {
+            color: #ddd;
+            height: 28px;
+            background: 0 0;
+            border-radius: 0;
+            border: solid 1px #999;
+            font-size: .75rem;
+        }
+
+        #search:focus {
+            box-shadow: 0px 0px 8px 6px #555;
+            outline: none;
+
+        }
+
+        .submit-btn {
+            background: 0 0;
+            color: white;
+            border: solid 1px #999;
+            border-left: 0;
+            height: 32px;
+            width: 48px;
+
+        }
+
+        .submit-btn:active {
+            box-shadow: 0px 0px 8px 6px #555;
+
+
+        }
+
+        #navicon {
+            display: none;
+            border: solid 1px #999;
+            color: #999;
+            font-size: 20px;
+            padding: 5px 8px;
+        }
+
+        #navicon:active {
+            box-shadow: 0px 0px 8px 6px #555;
+        }
+
+        @media screen and (max-width:1080px) {
+            .menu-contant-a {
+                display: none;
+
+            }
+
+            #navicon {
+                display: block;
+            }
+
+            .subNavbarDropdown {
+                display: flex;
+                flex-direction: column;
+
+            }
+
+            #WhoWeAre {
+                display: none !important;
+            }
+
+            #WhatWeDo {
+                display: none !important;
+            }
+
+            #Careers {
+                display: none !important;
+            }
+
+        }
+
+        @media screen and (min-width:1080px) {
+            #navbarDropdown {
+                display: none !important;
+            }
+        }
+
+        #navbarDropdown {
+            display: none;
+            flex-direction: column;
+            max-height: 300px;
+            overflow-y: scroll;
+            position: absolute;
+            top: 74px;
+            right: 1px;
+            background-color: #000;
+            border: 1px solid #fff;
+            z-index: 9999;
+            transition: top .3s ease;
+            padding: 20px;
+            width: 180px;
+        }
+
+        #menu-contant-a-WhoWeAre:hover+#WhoWeAre {
+            display: flex !important;
+            flex-direction: column;
+        }
+
+        #menu-contant-a-WhatWeDo:hover+#WhatWeDo {
+            display: flex !important;
+            flex-direction: column;
+        }
+
+        #menu-contant-a-Careers:hover+#Careers {
+            display: flex !important;
+            flex-direction: column;
+        }
+
+        .subNavbarDropdown a,
+        .menu-contant-a-contant a {
+            font-size: 12px;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+
+        }
+
+        .menu-contant-a-contant {
+            display: none;
+            height: fit-content;
+            position: absolute;
+            top: 74px;
+            background-color: #000;
+            border: 1px solid #fff;
+            z-index: 9999;
+            transition: top .3s ease;
+            padding: 20px;
+            min-width: 100px;
+            flex-direction: column;
+        }
+
+        /* end header*/
+        .divContant {
+            height: 600px;
+            object-fit: cover;
+
+        }
+
+        .subDivContant {
+            height: auto;
+            width: 70%;
+            padding: 5%;
+            color: white;
+
+        }
+
+        #subDivContant0 {
+            color: #3607b8c9;
+        }
+
+        #subDivContant1 {
+            color: #09bfc8cc;
+            text-align: ;
+        }
+
+        #subDivContant2 {
+            color: #027e4d;
+        }
+
+        #divContant3 {
+            height: 300px;
+            background-color: black;
+        }
+
+        #divContant4,
+        #divContant1 {
+            text-align: -webkit-right;
+        }
+
+        #subDivContant4 {
+            color: #04ab06a8
+        }
+
+        .contantText {
+            font-family: fantasy;
+            font-weight: 100;
+            font-variant-caps: petite-caps;
+            font-size: xxx-large;
+        }
+
+
+        .contantSubText {
+
+            color: white;
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+
+        .readMore {
+            margin-top: 20px;
+            margin-left: 11%;
+            width: fit-content;
+            height: fit-content;
+            padding: 10px 20px;
+            background: #d221a6;
+            border-radius: 7px;
+            font-weight: 900;
+        }
+
+        #divContant3 .readMore {
+            background: #171ebd;
+
+        }
+
+
+        /* end contant */
+
+        footer {
+            width: 100%;
+            float: left;
+            padding: 80px 0 40px;
+            background: #000;
+        }
+
+        .mainRow {
+            display: flex;
+            margin: 50px 22px;
+        }
+
+
+        footer h2 {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            margin-left: 30px;
+            color: #310bd5de;
+        }
+        .lastH2{
+             text-align: end; 
+             margin-right: 100px;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .row a {
+            text-align: center;
+            margin-bottom: 10px;
+            margin-left: -50px;
+        }
+
+        .postContent {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .col {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 33.3333333333%;
+            flex: 0 0 32.6%;
+            max-width: 33.3333333333%;
+        }
+
+        /*#centerCol {
+            padding: 0 15px;
+            border-right: 1px solid rgba(255, 255, 255, .2);
+            border-left: 1px solid rgba(255, 255, 255, .2);
+        }*/
+
+        .footerSocial {
+            padding: 0 1.75rem 0 0;
+            float: left;
+            margin-left: 30px;
+            height: 343px;
+        }
+
+        footer .footerSocial li {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        footer .footerSocial li a {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 300;
+            letter-spacing: .5px;
+        }
+
+        footer .footerSocial li a span {
+
+            font-size: 12px;
+            color: #310bd5de;
+        }
+        .menu-footer-menu-container{
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 40px;
+        }
+        .menu-footer-menu-container li {
+            margin-bottom: 15px;
+        }
+
+        footer .menu li a {
+
+            color: #fff;
+            font-size: 15px;
+            font-weight: 300;
+            letter-spacing: .5px;
+        }
+
+        footer .footerSocial li a img {
+            width: 42px;
+            margin-right: 10px;
+        }
+        .footer-sub-menu-container a{
+            margin-right:10px ;
+        }
+        .row2{
+            text-align: center;
+            margin: 50px;
+            margin-bottom: 0px;
+            
+        }
+        .row2 a{
+            padding: 0px 10px;
+            border-right: 1px white solid;
+        }
+        .learnMore{
+            color:blue;font-size:12px;
+        }
+        @media screen and (max-width:840px){
+            .mainRow {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .col{
+                
+                max-width:100%;
+            }
+            
+            footer h2 {
+                margin-left: 0px;
+                text-align: center;
+            }
+            .lastH2{
+                text-align: center;
+                margin-right: 15px;
+                margin-left: 0px;
+            }
+            .menu-footer-menu-container {
+                margin-right: 50px;
+                text-align: center;
+                
+            }
+            .bottomMenu{
+                display: flex;
+                flex-direction: column;
+            }
+            .row2 a {
+                margin-bottom: 20px;
+                border-right: none;
+            }
+            
+        }
+        @media screen and (max-width:750px){
+            footer .footerSocial li a span {
+
+                font-size: 13px;
+                color: #b7e5f0de;
+            }
+            .learnMore{
+                color:red;font-size:14px;
+            }
+            .Recent-Posts-img{
+                width: 250px;
+                height: 250px;
+            }
+            #divContant3 {
+                height: 400px;
+                background-color: black;
+            }
+            .subDivContant {
+                width: 90%;
+    
+            }
+            #subDivContant4 {
+                color:yellow;
+            }
+            
+        }
+       
+    </style>
+
+
+
+    <script>
+        function showNavBar(id) {
+
+            let divNav = document.getElementById(id).style;
+            if (divNav.display == "flex") {
+                divNav.display = "none";
+            } else {
+                document.getElementById('WhoWeAre').style.display = "none"
+                document.getElementById('WhatWeDo').style.display = "none"
+                document.getElementById('Careers').style.display = "none"
+                divNav.display = "flex";
+                divNav.style.flexDirection = "column";
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <section id="header" class="sectionHeader">
+        <div class="mainMenu">
+            <div class="logoLi"><a>
+                    <img class="siteLogo"
+                        src="https://www.northropgrumman.com/wp-content/uploads/2019/12/NGC-logo-white-on-clear.png"
+                        alt="Northrop Grumman Corporation Logo" style="height: 35px;width: 150px;">
+                </a>
+            </div>
+            <div class="menu-contant">
+                <div>
+                    <a class="menu-contant-a" id="menu-contant-a-WhoWeAre" onclick="showNavBar('WhoWeAre')" href="#">Who
+                        We Are</a>
+                    <div class="menu-contant-a-contant" id="WhoWeAre">
+                        <a href="#">Company Leadership</a>
+                        <a href="#">Defining Possible</a>
+                        <a href="#">Global Presence</a>
+                        <a target="_blank" href="#">Investors</a>
+                        <a target="_blank" href="#">News</a>
+                        <a target="_blank" href="#">Suppliers</a>
+                        <a href="#">Sustainability</a>
+                    </div>
+                </div>
+                <div>
+                    <a class="menu-contant-a" id="menu-contant-a-WhatWeDo" onclick="showNavBar('WhatWeDo')"
+                        href="#">What We Do</a>
+                    <div class="menu-contant-a-contant" id="WhatWeDo">
+                        <a href="#">Air</a>
+                        <a href="#">Cyber</a>
+                        <a href="#">Land</a>
+                        <a href="#">Sea</a>
+                        <a href="#">Space</a>
+                    </div>
+                </div>
+                <div>
+                    <a class="menu-contant-a" id="menu-contant-a-Careers" style="border-right: 0;"
+                        onclick="showNavBar('Careers')" href="#">Careers</a>
+                    <div class="menu-contant-a-contant" id="Careers">
+                        <a href="#">Students and Entry Level</a>
+                        <a href="#">Experienced Professionals</a>
+                        <a href="">Veterans</a>
+                        <a href="">Search Jobs by Location</a>
+                        <a href="">Life at Northrop Grumman</a>
+                        <a href="">Current Employees</a>
+                    </div>
+                </div>
+                <div class="navigation_search">
+                    <form method="post" id="searchform">
+                        <div id="searchDiv">
+                            <input id="search" name="s" type="text" placeholder="Search" value="">
+                            <button class="submit-btn" type="submit" id="searchsubmit">
+                                <span class="fa fa-search"></span>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="navigation__menu">
+                    <span id="navicon" class="fa fa-navicon" onclick="showNavBar('navbarDropdown');"></span>
+                    <div id="navbarDropdown" class="navbar-collapse">
+                        <details>
+                            <summary style="color:white; margin-bottom: 20px;"><a href="#"><span>Who We Are</a>
+                            </summary>
+                            <div class="subNavbarDropdown" id="WhoWeAreDropdown">
+                                <a href="#">Company Leadership</a>
+                                <a href="#">Defining Possible</a>
+                                <a href="#">Global Presence</a>
+                                <a target="_blank" href="#">Investors</a>
+                                <a target="_blank" href="#">News</a>
+                                <a target="_blank" href="#">Suppliers</a>
+                                <a href="#">Sustainability</a>
+                            </div>
+                        </details>
+                        <details>
+                            <summary style="color:white;margin-bottom: 20px;"><a href="#">What We Do</a></summary>
+                            <div class="subNavbarDropdown" id="WhatWeDoDropdown">
+                                <a href="#">Air</a>
+                                <a href="#">Cyber</a>
+                                <a href="#">Land</a>
+                                <a href="#">Sea</a>
+                                <a href="#">Space</a>
+                            </div>
+                        </details>
+                        <details>
+                            <summary style="color:white;margin-bottom: 20px;"> <a href="#">Careers</a></summary>
+                            <div class="subNavbarDropdown" id="CareersDropdown">
+                                <a href="#">Students and Entry Level</a>
+                                <a href="#">Experienced Professionals</a>
+                                <a href="">Veterans</a>
+                                <a href="">Search Jobs by Location</a>
+                                <a href="">Life at Northrop Grumman</a>
+                                <a href="">Current Employees</a>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section style="margin-top: 75px;">
+        <script>
+            text = ["Head in the Clouds", "Time Machine to the Cosmos", "The Women of Artemis", "Technology and Innovation", "Forbes 2022 World's Best Employers List"]
+            subtext = ["", "", "", "For some, the word 'impossible' ends discussions. For us, it's a starting point.", "Northrop Grumman Recognized for our Legendary Company Culture"]
+            backGround = ["https://www.northropgrumman.com/wp-content/uploads/Head-in-the-Clouds-Hero-Satellite-Clouds2.jpg", "https://www.northropgrumman.com/wp-content/uploads/pillars-of-creation-hero.jpg", "https://www.northropgrumman.com/wp-content/uploads/artemis-women-article.jpg", "", "https://www.northropgrumman.com/wp-content/uploads/career-Aug2022-v4.jpg"]
+            //style="background-image:url();background-position:3% 53%;min-height:600px"
+            for (let i = 0; i < text.length; i++) {
+                document.write("<div class='divContant' id='divContant" + i + "' style='background-image:url(" + backGround[i] + ");background-size: 110% 100%;'>" +
+                    "<div class='subDivContant' id = 'subDivContant" + i + "'><span class = 'contantText'>" + text[i] + "</span><br><br>" +
+                    "<span class = 'contantSubText'>" + subtext[i] + "</span><br>" +
+                    "<button class = 'readMore'type='submit'>Read More</button>" +
+                    "</div></div>")
+            }
+        </script>
+    </section>
+    <footer class="site-footer" style="background:black; padding-top:30px" id="colophon">
+        <div class="container">
+            <div class="mainRow">
+                <div class="col">
+                    <h2>Stay Connected</h2>
+                    <div>
+                    <ul class="footerSocial">
+                        <li>
+                            <a href="#" target="_blank">
+                                <img src="https://www.northropgrumman.com/wp-content/themes/northrop_grumman_corporate_theme/images/facebook.svg"
+                                    alt="Facebook Logo">Facebook<span> - Northrop Grumman</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <img src="https://www.northropgrumman.com/wp-content/themes/northrop_grumman_corporate_theme/images/instagram.svg"
+                                    alt="Instagram Logo">Instagram<span> - @NorthropGrumman</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <img src="https://www.northropgrumman.com/wp-content/themes/northrop_grumman_corporate_theme/images/linkedin.svg"
+                                    alt="LinkedIn Logo">LinkedIn<span> - Northrop Grumman Corporation</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <img src="https://www.northropgrumman.com/wp-content/themes/northrop_grumman_corporate_theme/images/twitter.svg"
+                                    alt="Twitter Logo">Twitter<span> - @NGCNews | @NorthropGrumman</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <img src="https://www.northropgrumman.com/wp-content/themes/northrop_grumman_corporate_theme/images/youtube.svg"
+                                    alt="YouTube Logo">YouTube<span> - Northrop Grumman Media</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                </div><!--col1 end -->
+                <div class="col" id="centerCol" style="text-align: center;">
+                    <h2 style="margin-left: -12px;">Recent Posts</h2>
+                    <ul class="footerPosts">
+                        <li class="row">
+                            <a href="#">
+                                <img class="Recent-Posts-img" width="150" height="150"
+                                    src="https://www.northropgrumman.com/wp-content/uploads/Well-Played-Hero.jpg?w=150&amp;h=150&amp;crop=1"
+                                    alt="young woman smiling with graduation cap on" loading="lazy"> </a>
+                            <div class="postContent">
+                                <h3>
+                                    <a href="#">
+                                        Well Played</a>
+                                </h3>
+                                <a class="postLearn" href="#"><span class="learnMore">Learn More</span>
+                                    </a>
+                            </div>
+                        </li>
+                        <li class="row">
+                            <a href="#">
+                                <img class="Recent-Posts-img" width="150" height="150"
+                                    src="https://www.northropgrumman.com/wp-content/uploads/Success-Across-Millions-of-Miles-HERO.jpg?w=150&amp;h=150&amp;crop=1"
+                                    alt="person in bunny suit inspects NASA solar arrays" loading="lazy"> </a>
+                            <div class="postContent ">
+                                <h3>
+                                    <a href="#">
+                                        Success Across Millions of Miles</a>
+                                </h3>
+                                <a class="postLearn" href="#"><span class="learnMore">Learn More</span></a>
+                            </div>
+                        </li>
+                        <li class="row">
+                            <a href="#">
+                                <img class="Recent-Posts-img" width="150" height="150"
+                                    src="https://www.northropgrumman.com/wp-content/uploads/My-Word-Continuing-the-Mission-hero-001.jpg?w=150&amp;h=150&amp;crop=1"
+                                    alt="white male soldier wearing sunglasses" loading="lazy"> </a>
+                            <div class="postContent ">
+                                <h3>
+                                    <a href="#">My Word: Continuing the Mission</a>
+                                </h3>
+                                <a class="postLearn" href="#"><span class="learnMore">Learn More</span></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!--col end -->
+                <div class="col">
+                    <h2 class= "lastH2">Navigation</h2>
+                    <div class="menu-footer-menu-container">
+                        <ul id="menu-footer-menu" class="menu">
+                            <li id="menu-item-1961616">
+                                <a href="#" aria-current="page">Home</a>
+                            </li>
+                            <li id="menu-item-697560"><a href="#">Who We Are</a></li>
+                            <li id="menu-item-161764"><a href="#">What We Do</a></li>
+                            <li id="menu-item-185706""><a
+                                    href=" #">Careers</a></li>
+                            <li id="menu-item-306653""><a
+                                    href=" #">Corporate
+                                Responsibility</a></li>
+                            <li id="menu-item-9961"><a target="_blank" rel="noopener" href="#">Investors</a></li>
+                            <li id="menu-item-9960"><a target="_blank" rel="noopener" href="#">Suppliers</a></li>
+                            <li id="menu-item-9962"><a target="_blank" rel="noopener" href="#">News</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!--col end -->
+            </div><!-- row end -->
+            <div class="row bottomLogo">
+                <div class="col4" style="text-align: center;">
+                    <a class="footerLogo" href="#" aria-label="Northrop Grumman">
+                        <img src="https://www.northropgrumman.com/wp-content/uploads/2019/12/NGC-logo-white-on-clear.png"
+                            alt="Northrop Grumman Logo">
+                    </a>
+                </div>
+                <!--col end -->
+
+            </div><!-- row end -->
+            <div class="row2">
+                <div id="footer-sub-menu-container" class="bottomMenu">
+                    <a href="#">Privacy Notice</a>
+                    <a style="color: #ccc!important;font-weight: 300;cursor: pointer;">Manage Cookie Preferences</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">EEO</a>
+                    <a href="#">Corporate Governance</a>
+                    <a href="#">Workplace Accommodations</a>
+                    <a href="#">E-Verify</a>
+                    <a href="">Suppliers</a>
+                    <a href="#" style="border-right: none;">Contact Us</a>
+                </div>
+                <div class="copyright" style="margin-top: 25px;">
+                    <br>
+                    <p class="footer-text" style="color:white;font-size:10px; letter-spacing: .5px;">© 2023 Northrop Grumman. The Northrop Grumman name and logos are registered
+                        trademarks of Northrop Grumman.</p>
+                </div>
+            </div><!-- row end -->
+        </div><!-- container end -->
+
+
+
+
+
+
+    </footer>
+
+</body>
+
+</html>
